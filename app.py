@@ -11,11 +11,10 @@ vehicles = pd.read_csv('vehicles_us.csv')
 
 #fill in missing values in the dataset
 vehicles['paint_color'] = vehicles['paint_color'].fillna('unknown')
-vehicles['model_year'] = vehicles['model_year'].dropna()
 vehicles['is_4wd'] = vehicles['is_4wd'].fillna(0)
 vehicles['odometer'] = vehicles['odometer'].fillna(vehicles['odometer'].mean()).astype('int')
 vehicles['cylinders'] = vehicles['cylinders'].fillna(0)
-
+vehicles = vehicles.dropna()
 
 #add a column for manufacturers
 vehicles['manufacturer'] = [x.split()[0] for x in vehicles['model']]
@@ -31,10 +30,9 @@ min_year, max_year = int(vehicles['model_year'].min()), int(vehicles['model_year
 #create a slider
 year_range = st.slider('Choose years', value=(min_year, max_year), min_value=min_year, max_value=max_year)
 
-
 actual_range = list(range(year_range[0], year_range[1]+1))
 
-df_filtered = vehicles[(vehicles.manufacturer == selected_menu) & (vehicles.model_year.isin(list(actual_range)))]
+df_filtered = vehicles[(vehicles['manufacturer'] == selected_menu) & (vehicles['model_year'].isin(list(actual_range)))]
 
 df_filtered
 
@@ -58,6 +56,7 @@ def age_category(x):
     elif x>=5 and x<10: return '5-10'
     elif x>=10 and x<=20: return '10-20'
     else: return '>20'
+    
     
 vehicles['age_category']  = vehicles['age'].apply(age_category)
 
