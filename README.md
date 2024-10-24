@@ -1,4 +1,5 @@
 # susan-sprint-4
+<<<<<<< HEAD
 Software development tools project in which we created a web app to analyze the data of used car sales.
 
 I imported the streamlit, pandas, and plotly.express libraries.
@@ -11,3 +12,6 @@ Plotly.express and Streamlit were used to create histograms and scatterplots to 
 
 To launch this project, visit http://localhost:8501
 
+=======
+Software development tools project exploring properties of a used car dataset
+>>>>>>> 12bae94e688b322da9d03941d23840d2f915bddf
