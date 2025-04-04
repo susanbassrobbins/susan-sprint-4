@@ -1,7 +1,5 @@
 # susan-sprint-4
  
-
-<<<<<<< HEAD
 Software development tools project in which we created a web app to analyze the data of used car sales.
 
 https://susan-sprint-4.onrender.com
